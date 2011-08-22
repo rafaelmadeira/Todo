@@ -1,0 +1,26 @@
+<article class="todo-list tl">
+  <% @items.each do |item| %>  
+  <div class="todo-item ti<%= ' done tid' if item.completed %>">
+    <p><%= item.content %></p>
+    <form action="/<%= item.id %>" method="post">
+      <input type="hidden" name="_method" value="delete">  
+      <input type="submit" value="Delete" />
+    </form>
+    <form action="/<%= item.id %>" method="post" id="edit">
+      <input type="hidden" name="_method" value="put">  
+      <%
+        if item.completed
+      %>
+          <input type="submit" value="Undone" />
+      <%
+        else
+      %> 
+          <input type="submit" value="Done" />
+      <%
+        end
+      %>
+    </form>
+    <div class="clearboth cb"></div>
+  </div>
+  <% end %>
+</article>  

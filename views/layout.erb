@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title><%= @page_title || 'Todo App' %></title>
+    <!--[if IE]>
+    <script src="js/html5.js"></script>
+    <![endif]-->
+    <link href="css/main.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1><%= @page_heading || 'Todo App' %></h1>
+      </header>
+    
+      <%= erb :form %>
+    
+      <%= yield %>
+    
+      <footer>
+        <p>Made with &#9829; by Tim Gleeson in 2011</p>
+      </footer>
+    </div>
+    <script src="js/jquery.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
