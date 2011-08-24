@@ -1,0 +1,63 @@
+<form action="/list" method="post" id="list" class="create-list cl form-a">
+  <label for="title">Add a list</label>
+  <input type="text" name="title" placeholder="Put list title here" tabindex="1" />
+  <input type="submit" value="Add" tabindex="2" />
+</form>
+
+
+<% @lists.each do |list| %>  
+
+<article class="todo-list tl">
+    
+    <h2 class="list-heading lh"><%= list.title %></h2>
+    
+    <form action="/list/<%= list.id %>" method="post" class="delete-list dl form-b">
+      <input type="hidden" name="_method" value="delete">  
+      <input type="submit" value="Delete" />
+    </form>
+    
+    <div class="clearboth cb">
+    
+    <form action="/item" method="post" id="item" class="create-item ci form-a">
+      <div class="form-item fi content">
+        <label for="content">Add an item!</label>
+        <textarea name="content" id="content" placeholder="Put item here" tabindex="3"></textarea>
+      </div>
+      <div class="form-item fi list">
+        <input type="hidden" name="list" value="<%= list.id %>" />
+      </div>
+      <div class="form-buttons fb">
+        <input type="submit" value="Add" tabindex="3" />
+      </div>
+    </form>
+    
+    <% @items.each do |item| %> 
+      <% if list.id == item.list %> 
+        <div class="todo-item ti<%= ' done tid' if item.completed %>" <%= 'rel=""' if item.completed %>>
+          <p><%= item.content %></p>
+          <form action="/item/<%= item.id %>" method="post" class="delete-item di form-c">
+            <input type="hidden" name="_method" value="delete">  
+            <input type="submit" value="Delete" />
+          </form>
+          <form action="/item/<%= item.id %>" method="post" id="edit" class="update-item ui form-c">
+            <input type="hidden" name="_method" value="put">  
+            <%
+              if item.completed
+            %>
+                <input type="submit" value="Undo" />
+            <%
+              else
+            %> 
+                <input type="submit" value="Done" />
+            <%
+              end
+            %>
+          </form>
+          <div class="clearboth cb"></div>
+        </div>
+      <% end %>
+    <% end %>
+  
+</article>
+
+<% end %>

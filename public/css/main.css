@@ -1,6 +1,6 @@
-body {font-family: arial}
+body {font-family: arial; font-size: 12px;}
 
-input, textarea {font-family: arial;}
+input, textarea {font-family: arial; font-size: 12px;}
 
 .cb {clear: both;}
 
@@ -8,16 +8,31 @@ input, textarea {font-family: arial;}
 
 header {display: block}
 	header h1 {text-align: center; font-size: 24px;}
-
-form#todo {padding: 0 0 20px 0;}
-	form#todo label {display: block; margin-bottom: 6px; font-size: 12px;}
-	form#todo textarea {width: 384px; padding: 7px; height: 14px; margin-bottom: 3px;}
+	header h1 a {color: #000; text-decoration: none;}
 	
-article.todo-list {}
+nav {font-size: 12px; color: #000; margin-bottom: 20px;}
+	nav a {font-size: 12px; color: #000;}
+
+form.form-a {padding: 0 0 10px 0;}
+	form.form-a label {display: block; margin-bottom: 6px; font-size: 12px;}
+	form.form-a textarea,
+	form.form-a input[type="text"] {width: 384px; padding: 7px; height: 14px; margin-bottom: 3px; border: 1px solid #ccc;}
+	form.form-a textarea:focus,
+	form.form-a input[type="text"]:focus {border: 1px solid #333;}
+
+form.cl {margin-bottom: 20px; border-bottom: 1px solid #ccc;}
+	form.cl input[type="text"] {margin-bottom: 6px;}
+
+form.form-b {float: right;}	
+
+h2.lh {float: left; padding: 0 0 10px 0; margin: 0;}
+	
+article.tl {margin-bottom: 20px;}
 	article.tl div.ti {border-bottom: 1px solid #ccc; width: 400px; padding: 10px 0;}
 	article.tl div.ti:hover {background-color: #ddd;}
 	article.tl div.ti p {float: left; width: 260px; font-size: 12px; margin: 0; padding: 5px 0 0 10px;}
+	article.tl div.tid p {text-decoration: line-through; color: #999;}
 	article.tl div.ti form {float: right; padding-right: 5px;}
 	
-footer {}
+footer {padding-top: 20px;}
 	footer p {text-align: center; font-size: 11px}
